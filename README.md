@@ -1,10 +1,4 @@
-# Module One Final Project Guidelines
-
-Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
-
-For your final project, we'll be building a Command Line database application.
-
-## Project Requirements
+# Project Requirements
 
 ### Option One - Data Analytics Project
 
@@ -46,23 +40,10 @@ Projects need to be approved prior to launching into them, so take some time to 
 
 ## Short Presentation Requirements
 
-Presenting to others on a technical topic is something you will do several times throughout your experience at Flatiron. This will allow you to practice exercising some important skills. 
-
-#### Introducing Yourself
-At the beginning of your presentation you'll want to introduce yourself to the audience. Even if you already know your peers and this feels awkward, this is great & low-stakes way to practice for your personal elevator pitch in a welcoming space. Take it seriously and be kind to others; maybe you'll learn something new about someone!
-
-Aim for a short, 30-second summary of your career progression, leading up to Flatiron School, with an emphasis on your professional skills and goals. Think of it as a condensed narration of your story; where you started, what inspired you to get into coding (did you have a pivotal "aha!" moment?), what you're passionate about, and what you're looking forward to going forward (job and/or career wise).
-
-Here are two examples as inspiration:
-
-> Hi, my name is Pam and building and creating things have always been in my blood. It started when I used to make model airplanes in the 5th grade, and continued through college, during which I took a few computer science classes. After graduating with a environmental sustainability degree I worked at hazardous waste and solar energy companies. It wasn't long before I realized that my creative spirit had been stifled and was aching to escape...and that coding was what truly made me come alive! I'm now thrilled to be here at Flatiron and soon launching my new career in software engineering!
-
-> Hi, my name is Tony and I'm a former educator with a Bachelor and Masters in English and Professional Studies from Stony Brook. I've held roles as a teacher, academic policy programmer, and dean of students at two NYC public high schools. I've always loved puzzles and solving problems, and I see coding as an extension of this. I'm excited to merge my previous background in education with my new found programming skills to launch a new career as a developer in the ed tech space.
-
-There's no right or wrong way to introduce yourself. It's your story, so make it your own. :)
+Presenting to others on a technical topic is something you will do several times throughout your experience. This will allow you to practice exercising some important skills. 
 
 #### Technical Presentation Requirements
-Having built your project on your own with a partner, you are the expert on it! Even though that's the case, talking about techincal topics can be challenging. Do your best to communicate what you have learned in a way others can digest.
+Having built your project on your own or with a partner, you are the expert on it! Even though that's the case, talking about techincal topics can be challenging. Do your best to communicate what you have learned in a way others can digest.
   - Describe something you struggled to build, and show us how you ultimately implemented it in your code.
   - Discuss 3 things you learned in the process of working on this project.
   - Address, if anything, what you would change or add to what you have today?

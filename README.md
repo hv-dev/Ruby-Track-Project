@@ -59,5 +59,5 @@ ActiveRecord::Base.logger = nil
 ```
 
 ### Useful links:
-- [Sinatra ActiveRecord Usage](Documentation for sinatra-activerecord (2.0.25) - RubyDoc.infohttps://www.rubydoc.info › gems › sinatra-activerecord)
+- [Sinatra ActiveRecord Usage](https://www.rubydoc.info/gems/sinatra-activerecord)
 - [Activerecord Basics](https://guides.rubyonrails.org/active_record_basics.html)

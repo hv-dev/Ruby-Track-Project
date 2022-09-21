@@ -57,3 +57,7 @@ Having built your project on your own or with a partner, you are the expert on i
 # in config/environment.rb add this line:
 ActiveRecord::Base.logger = nil
 ```
+
+### Useful links:
+- [Sinatra ActiveRecord Usage](Documentation for sinatra-activerecord (2.0.25) - RubyDoc.infohttps://www.rubydoc.info › gems › sinatra-activerecord)
+- [Activerecord Basics](https://guides.rubyonrails.org/active_record_basics.html)

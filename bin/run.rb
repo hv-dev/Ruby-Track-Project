@@ -1,5 +1,5 @@
 require_relative '../config/environment'
-
+require '../lib/pokedex'
 CLEAR = "\e[H\e[2J"
 
 if TTY::Prompt.new().yes?("Would you like to start the program?")
@@ -14,6 +14,28 @@ if TTY::Prompt.new().yes?("Would you like to start the program?")
         "Test Message that should appear on screen within the box"
     end
 =end
+
+    begin
+        ping_check = Net::HTTP.get_response(URI('https://pokeapi.co/api/v2/pokemon/1/'))
+    rescue Exception
+    end
+        
+
+    if ping_check.is_a?(Net::HTTPSuccess)
+        connection_string = "Connected"
+    else
+        connection_string = "Not Connected. Application will not work as expected"
+    end
+
+    box = TTY::Box.frame(
+        width: 20, height: 6,
+        border: :thick, padding: 1,
+        align: :center,
+        title: {top_left: "Pokédex", bottom_right: "CC-2"}
+        ) do
+            connection_string
+    end
+    puts box
 
     prompt = TTY::Prompt.new()
 
@@ -34,6 +56,7 @@ if TTY::Prompt.new().yes?("Would you like to start the program?")
             puts "Creating an account"
         when "dex"
             puts "Opening Pokédex"
+            Pokedex.start()
         when "rivals"
             puts "Searching for Rvials"
         when "close_program"
@@ -45,5 +68,3 @@ else
     print CLEAR
     abort
 end
-
-#puts box

@@ -32,16 +32,10 @@ class MainMenu
 
     def print_prompt
         prompt = TTY::Prompt.new()
+        menu_options(false)
+
     
-        guest_menu_options = {
-            "Login" => "login",
-            "Create an account" => "create_account",
-            "Pokédex" => "dex",
-            "Rivals" => "rivals",
-            "Close Program" => "close_program"  
-        }
-    
-        selected_option = prompt.select("Please select an option", guest_menu_options, marker: ">>", required: true, filter: true)
+        selected_option = prompt.select("Please select an option", OPTIONS, marker: ">>", required: true, filter: true)
     
         case selected_option
         when "login"
@@ -51,12 +45,38 @@ class MainMenu
         when "dex"
             puts "Opening Pokédex"
             # start()
+        when "my_team"
+            puts "Viewing your team"
         when "rivals"
             puts "Searching for Rvials"
+        when "logout"
+            puts "Logging out"
         when "close_program"
-            quit_program
+            puts "Closing Program. Goodbye"
+            abort
         else
             puts "You have managed to select an invalid option, closing program"
+            abort
+        end
+    end
+
+    def menu_options(logged_in => false)
+        if logged_in == false
+            OPTIONS = {
+                "Login" => "login",
+                "Create an account" => "create_account",
+                "Pokédex" => "dex",
+                "Rivals" => "rivals",
+                "Close Program" => "close_program"  
+            }
+        else
+            OPTIONS = {
+                "Pokédex" => "dex",
+                "My Team" => "my_team",
+                "Rivals" => "rivals",
+                "Logout " => "logout",
+                "Close Program" => "close_program"
+            }
         end
     end
 end

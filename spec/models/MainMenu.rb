@@ -21,4 +21,12 @@ describe 'MainMenu' do
             expect(test_menu.connection_string).to eq("Not Connected. Application will not work as expected")
         end
     end
+
+    context 'Menu Options' do
+
+        it 'Closes the program when the Close Program option is selected' do
+            test_menu = MainMenu.new
+            expect(test_menu.handle_option('close_program')).to output.to_stdout
+        end
+    end
 end

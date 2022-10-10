@@ -12,3 +12,5 @@ tmp
 
 db/*.db
 .solargraph.yml
+
+reference_jsons/

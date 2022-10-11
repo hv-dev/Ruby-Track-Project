@@ -4,9 +4,7 @@ require 'net/http'
 require 'poke-api-v2'
 
 def expected_data_format
-    pokedex = []
-    
-    pokedex.push({
+    pokemon1 = {
         id: 1,
         name: "Bulbasaur",
         stats: [
@@ -62,9 +60,9 @@ def expected_data_format
             }
         ],
         weight: 69
-    })
+    }
     
-    pokedex.push({
+    pokemon2 = {
         id: 4,
         name: "Charmander",
         stats: [
@@ -120,11 +118,12 @@ def expected_data_format
             }
         ],
         weight: 85
-    })
+    }
+
+    [pokemon1, pokemon2]
   end
 
 describe 'Pokedex' do
-
   context 'The correct regions are selected based on the methods parameter' do
 
       it 'sets lower_limit to 1 and upper_limit to 151 when the region is kanto' do
@@ -144,193 +143,193 @@ describe 'Pokedex' do
 
   context 'The data retrieved from the API has been reformated correctly' do
     let(:one_type_pokemon) {
-        one_type_pokemon = {
-            "base_experience": 62,
-            "forms": [
-            {
-                "name": "charmander",
-                "url": "https://pokeapi.co/api/v2/pokemon-form/4/"
-            }
-            ],
-            "height": 6,
-            "held_items": [],
-            "id": 4,
-            "is_default": true,
-            "location_area_encounters": "https://pokeapi.co/api/v2/pokemon/4/encounters",
+      one_type_pokemon = {
+        "base_experience": 62,
+        "forms": [
+        {
             "name": "charmander",
-            "order": 5,
-            "past_types": [],
-            "species": {
-            "name": "charmander",
-            "url": "https://pokeapi.co/api/v2/pokemon-species/4/"
-            },
-            "stats": [
-            {
-                "base_stat": 39,
-                "effort": 0,
-                "stat": {
-                "name": "hp",
-                "url": "https://pokeapi.co/api/v2/stat/1/"
-                }
-            },
-            {
-                "base_stat": 52,
-                "effort": 0,
-                "stat": {
-                "name": "attack",
-                "url": "https://pokeapi.co/api/v2/stat/2/"
-                }
-            },
-            {
-                "base_stat": 43,
-                "effort": 0,
-                "stat": {
-                "name": "defense",
-                "url": "https://pokeapi.co/api/v2/stat/3/"
-                }
-            },
-            {
-                "base_stat": 60,
-                "effort": 0,
-                "stat": {
-                "name": "special-attack",
-                "url": "https://pokeapi.co/api/v2/stat/4/"
-                }
-            },
-            {
-                "base_stat": 50,
-                "effort": 0,
-                "stat": {
-                "name": "special-defense",
-                "url": "https://pokeapi.co/api/v2/stat/5/"
-                }
-            },
-            {
-                "base_stat": 65,
-                "effort": 1,
-                "stat": {
-                "name": "speed",
-                "url": "https://pokeapi.co/api/v2/stat/6/"
-                }
+            "url": "https://pokeapi.co/api/v2/pokemon-form/4/"
+        }
+        ],
+        "height": 6,
+        "held_items": [],
+        "id": 4,
+        "is_default": true,
+        "location_area_encounters": "https://pokeapi.co/api/v2/pokemon/4/encounters",
+        "name": "charmander",
+        "order": 5,
+        "past_types": [],
+        "species": {
+        "name": "charmander",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/4/"
+        },
+        "stats": [
+        {
+            "base_stat": 39,
+            "effort": 0,
+            "stat": {
+            "name": "hp",
+            "url": "https://pokeapi.co/api/v2/stat/1/"
             }
-            ],
-            "types": [
-            {
-                "slot": 1,
-                "type": {
-                "name": "fire",
-                "url": "https://pokeapi.co/api/v2/type/10/"
-                }
+        },
+        {
+            "base_stat": 52,
+            "effort": 0,
+            "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
             }
-            ],
-            "weight": 85
-        }.to_json
+        },
+        {
+            "base_stat": 43,
+            "effort": 0,
+            "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+            }
+        },
+        {
+            "base_stat": 60,
+            "effort": 0,
+            "stat": {
+            "name": "special-attack",
+            "url": "https://pokeapi.co/api/v2/stat/4/"
+            }
+        },
+        {
+            "base_stat": 50,
+            "effort": 0,
+            "stat": {
+            "name": "special-defense",
+            "url": "https://pokeapi.co/api/v2/stat/5/"
+            }
+        },
+        {
+            "base_stat": 65,
+            "effort": 1,
+            "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+            }
+        }
+        ],
+        "types": [
+        {
+            "slot": 1,
+            "type": {
+            "name": "fire",
+            "url": "https://pokeapi.co/api/v2/type/10/"
+            }
+        }
+        ],
+        "weight": 85
+      }.to_json
     }
 
     let(:two_type_pokemon) {
-        two_type_pokemon = {
-            "abilities": [
-              {
-                "ability": {
-                  "name": "overgrow",
-                  "url": "https://pokeapi.co/api/v2/ability/65/"
-                },
-                "is_hidden": false,
-                "slot": 1
-              },
-              {
-                "ability": {
-                  "name": "chlorophyll",
-                  "url": "https://pokeapi.co/api/v2/ability/34/"
-                },
-                "is_hidden": true,
-                "slot": 3
-              }
-            ],
-            "base_experience": 64,
-            "height": 7,
-            "held_items": [],
-            "id": 1,
-            "is_default": true,
-            "location_area_encounters": "https://pokeapi.co/api/v2/pokemon/1/encounters",
-            "name": "bulbasaur",
-            "order": 1,
-            "past_types": [],
-            "species": {
-              "name": "bulbasaur",
-              "url": "https://pokeapi.co/api/v2/pokemon-species/1/"
+      two_type_pokemon = {
+        "abilities": [
+          {
+            "ability": {
+              "name": "overgrow",
+              "url": "https://pokeapi.co/api/v2/ability/65/"
             },
-            "stats": [
-              {
-                "base_stat": 45,
-                "effort": 0,
-                "stat": {
-                  "name": "hp",
-                  "url": "https://pokeapi.co/api/v2/stat/1/"
-                }
-              },
-              {
-                "base_stat": 49,
-                "effort": 0,
-                "stat": {
-                  "name": "attack",
-                  "url": "https://pokeapi.co/api/v2/stat/2/"
-                }
-              },
-              {
-                "base_stat": 49,
-                "effort": 0,
-                "stat": {
-                  "name": "defense",
-                  "url": "https://pokeapi.co/api/v2/stat/3/"
-                }
-              },
-              {
-                "base_stat": 65,
-                "effort": 1,
-                "stat": {
-                  "name": "special-attack",
-                  "url": "https://pokeapi.co/api/v2/stat/4/"
-                }
-              },
-              {
-                "base_stat": 65,
-                "effort": 0,
-                "stat": {
-                  "name": "special-defense",
-                  "url": "https://pokeapi.co/api/v2/stat/5/"
-                }
-              },
-              {
-                "base_stat": 45,
-                "effort": 0,
-                "stat": {
-                  "name": "speed",
-                  "url": "https://pokeapi.co/api/v2/stat/6/"
-                }
-              }
-            ],
-            "types": [
-              {
-                "slot": 1,
-                "type": {
-                  "name": "grass",
-                  "url": "https://pokeapi.co/api/v2/type/12/"
-                }
-              },
-              {
-                "slot": 2,
-                "type": {
-                  "name": "poison",
-                  "url": "https://pokeapi.co/api/v2/type/4/"
-                }
-              }
-            ],
-            "weight": 69
-          }.to_json
+            "is_hidden": false,
+            "slot": 1
+          },
+          {
+            "ability": {
+              "name": "chlorophyll",
+              "url": "https://pokeapi.co/api/v2/ability/34/"
+            },
+            "is_hidden": true,
+            "slot": 3
+          }
+        ],
+        "base_experience": 64,
+        "height": 7,
+        "held_items": [],
+        "id": 1,
+        "is_default": true,
+        "location_area_encounters": "https://pokeapi.co/api/v2/pokemon/1/encounters",
+        "name": "bulbasaur",
+        "order": 1,
+        "past_types": [],
+        "species": {
+          "name": "bulbasaur",
+          "url": "https://pokeapi.co/api/v2/pokemon-species/1/"
+        },
+        "stats": [
+          {
+            "base_stat": 45,
+            "effort": 0,
+            "stat": {
+              "name": "hp",
+              "url": "https://pokeapi.co/api/v2/stat/1/"
+            }
+          },
+          {
+            "base_stat": 49,
+            "effort": 0,
+            "stat": {
+              "name": "attack",
+              "url": "https://pokeapi.co/api/v2/stat/2/"
+            }
+          },
+          {
+            "base_stat": 49,
+            "effort": 0,
+            "stat": {
+              "name": "defense",
+              "url": "https://pokeapi.co/api/v2/stat/3/"
+            }
+          },
+          {
+            "base_stat": 65,
+            "effort": 1,
+            "stat": {
+              "name": "special-attack",
+              "url": "https://pokeapi.co/api/v2/stat/4/"
+            }
+          },
+          {
+            "base_stat": 65,
+            "effort": 0,
+            "stat": {
+              "name": "special-defense",
+              "url": "https://pokeapi.co/api/v2/stat/5/"
+            }
+          },
+          {
+            "base_stat": 45,
+            "effort": 0,
+            "stat": {
+              "name": "speed",
+              "url": "https://pokeapi.co/api/v2/stat/6/"
+            }
+          }
+        ],
+        "types": [
+          {
+            "slot": 1,
+            "type": {
+              "name": "grass",
+              "url": "https://pokeapi.co/api/v2/type/12/"
+            }
+          },
+          {
+            "slot": 2,
+            "type": {
+              "name": "poison",
+              "url": "https://pokeapi.co/api/v2/type/4/"
+            }
+          }
+        ],
+        "weight": 69
+        }.to_json
     }
 
-      expected_data = expected_data_format()
+      expected_data = expected_data_format
 
       it 'Successfully places N/A when the pokemon does not have a second type' do
         allow(Net::HTTP).to receive(:get).and_return(one_type_pokemon)
